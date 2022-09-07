@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/krisrajzlive/nodeweatherapp#readme",
   "dependencies": {
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "yargs": "^17.5.1"
   }
 }
