@@ -13,10 +13,10 @@ const forecast = (latitude, longitude, callback) => {
         {
             const jsonData = JSON.parse(response.body)
             if (jsonData.success === false)
-               callback('Unable to get weather details')
+               callback('Unable to get weather details', undefined)
             else
                 {
-                    callback('',
+                    callback(undefined,
                     {
                         weather: jsonData.current.weather_descriptions,
                         temperature: jsonData.current.temperature,
