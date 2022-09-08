@@ -8,16 +8,22 @@ if (!location)
 else
 {
     //callback chaining
-    geocode (location, (error, data) => {
+    geocode (location, (error, {latitude, longitude, location}) => {
         if (error)
-        console.log('Error: ', error)
+            return console.log('Error: ', error)
         else
         {
-            console.log('Data: ' , data)
-            forecast(data.latitude, data.longitude, (error, forecastdata) => {
+            console.log('Location: ', location)
+            console.log('Latitude: ' , latitude)
+            console.log('Longitude: ', longitude)
+
+            forecast(latitude, longitude, (error, {weather, temperature, feelslike}) => {
                 if (error)
-                    console.log('Error: ', error)
-                console.log('Data: ', forecastdata)
+                    return console.log('Error: ', error)
+
+                console.log('Weather: ', weather)
+                console.log('Temperature: ', temperature)
+                console.log('Feelslike: ', feelslike)
             })
         }
     })
